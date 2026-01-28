@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 406 406" style="enable-background:new 0 0 406 406;" xml:space="preserve" >
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:19;stroke-miterlimit:10;}
+	.st1{fill:none;}
+	.st2{fill:none;stroke:#000000;stroke-width:17.38;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#ffffff;stroke-width:18.3;stroke-miterlimit:10;}
+	.st4{fill:#ffffff;}
+	.st5{fill:#ff7550;stroke:#ffffff;stroke-width:6;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="M17.5,320.5"/>
+<path class="st0" d="M17.3,411.5"/>
+<line class="st1" x1="72.3" y1="211.6" x2="17.3" y2="215.6"/>
+<line class="st1" x1="342.3" y1="197.6" x2="403.3" y2="197.6"/>
+<path class="st2" d="M28.1,302.1"/>
+<path class="st2" d="M27.9,384.8"/>
+<polyline class="st3" points="352.9,154.1 337.7,143 310.1,122.8 200,42.5 49.8,154.1 "/>
+<polygon class="st4" points="337.5,324.4 67,324.4 67,167.8 201,68.3 337.5,167.8 "/>
+<path class="st5" d="M184.6,215.6H218c12.2,0,22,12.1,22,27V320h-77.5v-77.4C162.6,227.7,172.5,215.6,184.6,215.6z"/>
+<polygon class="st4" points="337.7,73.3 337.7,134.8 310.1,114.7 310.1,73.3 "/>
+</svg>
+

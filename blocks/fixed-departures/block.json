@@ -1,0 +1,25 @@
+{
+  "name": "rha/fixed-departures",
+  "title": "Fixed Departures",
+  "description": "Add date specific fixed departure tours to your page.",
+  "category": "eb-blocks",
+  "icon": "awards",
+  "keywords": ["Fixed departures", "tours", "dates"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

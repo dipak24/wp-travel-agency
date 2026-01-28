@@ -1,0 +1,25 @@
+{
+  "name": "rha/sidebar-accordion-with-faq",
+  "title": "Sidebar accordion with FAQ lists",
+  "description": "Show faq lists in accordion style with sidebar.",
+  "category": "eb-blocks",
+  "icon": "table",
+  "keywords": ["faq", "accordion", "image"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

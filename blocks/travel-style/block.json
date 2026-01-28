@@ -1,0 +1,25 @@
+{
+  "name": "rha/travel-style",
+  "title": "Travel Style (Explore outdoor)",
+  "description": "Select your most familiar travel style from the options below.",
+  "category": "eb-blocks",
+  "icon": "awards",
+  "keywords": ["travel style", "Day tour"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

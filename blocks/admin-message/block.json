@@ -1,0 +1,25 @@
+{
+  "name": "rha/admin-message",
+  "title": "Admin Message",
+  "description": "Display an admin message.",
+  "category": "eb-blocks",
+  "icon": "info",
+  "keywords": ["message", "info"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

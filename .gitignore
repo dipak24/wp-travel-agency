@@ -1,2 +1,17 @@
 # Ignore vscode settings
 .vscode/
+node_modules/
+vendor/
+wp-config.php
+.env
+.DS_Store
+*.log
+.idea/
+*.iml
+*.bak
+*.tmp
+*.swp
+*.cache
+.cache/
+*.dist
+*.local

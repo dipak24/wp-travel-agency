@@ -517,6 +517,219 @@
                     "parent_repeater": "field_6957e61c7d474"
                 }
             ]
+        },
+        {
+            "key": "field_698f3e10be7f8",
+            "label": "General Settings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_698f4094bdb49",
+            "label": "Phone number",
+            "name": "rha_contact_phone_lists",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add your business phone or mobile number.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add phone",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_698f4094bdb4a",
+                    "label": "Phone",
+                    "name": "phone",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_698f4094bdb49"
+                }
+            ]
+        },
+        {
+            "key": "field_698f3e60be7fa",
+            "label": "WhatsApp Number",
+            "name": "rha_whatsapp_number",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Add your business whatsApp number.",
+            "required": false,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_698f3ff1574b5",
+            "label": "Email Address",
+            "name": "rha_email_lists",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Please click the ‘Add Email’ button and enter your business email address.”",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add email",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_698f4042574b6",
+                    "label": "Email",
+                    "name": "email",
+                    "aria-label": "",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_698f3ff1574b5"
+                }
+            ]
+        },
+        {
+            "key": "field_698f3e74be7fb",
+            "label": "Office location",
+            "name": "rha_full_address",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_698f43835cca7",
+            "label": "Address URL",
+            "name": "address_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Kindly share your Google Maps or other address link so customers can easily click and access your location.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_698f44f2e885c",
+            "label": "Office Opening Hours",
+            "name": "office_opening_hours",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Add your office hours and alternative contact details so customers can contact you or your team during emergencies.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_698f3e9abe7fc",
+            "label": "Google map",
+            "name": "rha_google_map",
+            "aria-label": "",
+            "type": "google_map",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": "",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -538,5 +751,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1767368469
+    "modified": 1770997534
 }

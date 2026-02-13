@@ -109,32 +109,6 @@ function rha_init_block_types() {
 			)
 		);
 
-		// register a custom block for Contact Us
-		acf_register_block_type(
-			array(
-				'name' 				=> 'block-contact-us',
-				'title' 			=> __('Contact Us', 'rha'),
-				'description' 		=> __('A custom Contact us form.', 'rha'),
-				'render_callback' 	=> 'render_acf_block_callback',
-				'category' 			=> 'eb-blocks',
-				'icon' 				=> 'testimonial',
-				'keywords' 			=> array('contact us, form'),
-				'mode' 				=> 'edit',
-				'supports' 			=> array(
-					'mode'  => 'false',
-					'align' => false,
-				),
-				'example' 			=> array(
-					'attributes' => array(
-						'mode'   => 'preview',
-						'data'   => array(
-							'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/contact-us.png',
-						)
-					)
-				),
-			)
-		);
-
 		// register a custom block for Multiple column blog
 		acf_register_block_type(
 			array(
@@ -302,30 +276,6 @@ function rha_init_block_types() {
 					'mode' => 'preview',
 					'data' => array(
 						'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/Multiple-image-banner.png',
-					)
-				)
-			),
-		));
-
-		// Award Winning Team Listing
-		acf_register_block_type(array(
-			'name'				=> 'block-award-winning-team-listing',
-			'title'				=> __('Award Winning Team Listing', 'rha'),
-			'description'		=> __('A custom Award Winning Team Listing', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'grid-view',
-			'keywords'			=> array('Feature', 'Feature One', 'Listing'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'	=> 'false',
-				'align'	=> false,
-			),
-			'example'  			=> array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/Award-Winning-Team.png',
 					)
 				)
 			),

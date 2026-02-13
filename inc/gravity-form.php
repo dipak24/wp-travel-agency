@@ -96,7 +96,7 @@ function gravity_form_validation($result, $value, $form, $field)
     return $result;
 }
 
-define('BOOKING_FORM_ID', 2);
+define('BOOKING_FORM_ID', 3);
 //define('CUSTOMIZE_TRIP_FORM_ID', 3);
 
 add_action('init', function () {

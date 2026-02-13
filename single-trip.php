@@ -43,6 +43,7 @@ get_header();
 								'core/image',
 								'core/video',
 								'core/table',
+								'rha/admin-message',
 							];
 
 							foreach ($blocks as $block) {
@@ -70,8 +71,12 @@ get_header();
 		<?php 
 
 		$allowed_blocks = [
-			'rha/sidebar-accordion-with-faq'
+			'rha/sidebar-accordion-with-faq',
+			'rha/fixed-departures',
+			'rha/our-team',
 		];
+
+		//print_r($blocks);
 
 		foreach ($blocks as $block) {
 

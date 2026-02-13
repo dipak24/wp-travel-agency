@@ -54,34 +54,35 @@ $save_price    = ($regular_price && $sale_price) ? ($regular_price - $sale_price
                         endif;
                         ?>
                     </div>
+                    <?php if (have_rows('rha_group_discount')) : ?>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No. of Persons</th>
+                                        <th>Price per Person</th>
+                                    </tr>
+                                </thead>
 
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>No. of Persons</th>
-                                    <th>Price per Person</th>
-                                </tr>
-                            </thead>
+                                <tbody>
+                                    <?php while (have_rows('rha_group_discount')) : the_row(); ?>
+                                        <?php
+                                        $group_size  = get_sub_field('number_of_pax');
+                                        $group_price = get_sub_field('price_per_person');
+                                        ?>
 
-                            <tbody>
-                                <?php while (have_rows('rha_group_discount')) : the_row(); ?>
-                                    <?php
-                                    $group_size  = get_sub_field('number_of_pax');
-                                    $group_price = get_sub_field('price_per_person');
-                                    ?>
+                                        <?php if ($group_size && $group_price) : ?>
+                                            <tr>
+                                                <td><?php echo esc_html($group_size); ?> Pax</td>
+                                                <td>US$ <?php echo esc_html($group_price); ?></td>
+                                            </tr>
+                                        <?php endif; ?>
 
-                                    <?php if ($group_size && $group_price) : ?>
-                                        <tr>
-                                            <td><?php echo esc_html($group_size); ?> Pax</td>
-                                            <td>US$ <?php echo esc_html($group_price); ?></td>
-                                        </tr>
-                                    <?php endif; ?>
-
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                    <?php endwhile; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
 
@@ -91,14 +92,14 @@ $save_price    = ($regular_price && $sale_price) ? ($regular_price - $sale_price
                 <?php if (get_field('rha_trip_booking_url')) : ?>
                     <a href="<?php echo esc_url(get_field('rha_trip_booking_url')); ?>" class="btn">Book Now</a>
                 <?php else : ?>
-                    <form method="POST" action="<?php echo esc_url(home_url('/booking')); ?>">
-                        <input type="hidden" name="trip-id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                    <form method="GET" action="<?php echo esc_url(home_url('/trip-booking')); ?>">
+                        <input type="hidden" name="trip_id" value="<?php echo esc_attr(get_the_ID()); ?>">
                         <button type="submit" class="btn">Book Now</button>
                     </form>
                 <?php endif; ?>
 
-                <form action="<?php echo esc_url(home_url('/inquire')); ?>" method="POST">
-                    <input type="hidden" name="trip-id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                <form action="<?php echo esc_url(home_url('/trip-inquire')); ?>" method="GET">
+                    <input type="hidden" name="trip_id" value="<?php echo esc_attr(get_the_ID()); ?>">
                     <button type="submit" class="btn outline">Enquire</button>
                 </form>
 

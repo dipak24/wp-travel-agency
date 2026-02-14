@@ -1,0 +1,25 @@
+{
+  "name": "rha/associated-with",
+  "title": "Associated With",
+  "description": "Show your travel agency associated with different organizations.",
+  "category": "eb-blocks",
+  "icon": "awards",
+  "keywords": ["associated", "organizations", "travel"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

@@ -8,6 +8,30 @@ function rha_mime_types($mimes)
 }
 add_filter('upload_mimes', 'rha_mime_types');
 
+/* Allowed HTML tags for ACF WYSIWYG field */
+function getAllowedHtmlTags(){
+    $allowed_html = [
+        'span'   => [
+            'class' => [],
+            'id'    => [],
+            'style' => [],
+        ],
+        'strong' => [],
+        'b'      => [],
+        'em'     => [],
+        'i'      => [],
+        'sup'    => [],
+        'sub'    => [],
+        'br'     => [],
+        'small'  => [],
+        'mark'   => [
+            'class' => [],
+        ],
+    ];
+
+    return $allowed_html;
+}
+
 
 /* To hide ACF field for sub level menu */
 function rha_acf_parent_menu_show()

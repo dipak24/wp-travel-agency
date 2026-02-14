@@ -3,6 +3,27 @@
     "title": "Team's Fields",
     "fields": [
         {
+            "key": "field_69900df7fc185",
+            "label": "Designation",
+            "name": "rha_team_designation",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_69787565876d2",
             "label": "Contact number",
             "name": "contact_number",
@@ -43,6 +64,27 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_699025be2983e",
+            "label": "Description",
+            "name": "team_short_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -64,5 +106,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769502185
+    "modified": 1771054600
 }

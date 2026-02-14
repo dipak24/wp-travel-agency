@@ -3,7 +3,7 @@
 * Custom Function to get button class based on selection
 */
 function rha_get_button_class($option){
-    switch($option){
+    switch($option) {
     case 'filled':
       $selected_button_class = 'btn-primary';
       break;
@@ -23,6 +23,7 @@ function rha_get_button_class($option){
     default:
       $selected_button_class = 'btn-primary';
     }
+    
     return $selected_button_class;
 }
 
@@ -117,27 +118,50 @@ function rha_acf_load_color_field_choices( $field ) {
     }
 
     /**
-     * Static Black and White colors for select options
+     * Static utility colors for select options
      */
     $color_black = '#000000';
     $color_black_label = 'Black';
+    
     $color_white = '#ffffff';
     $color_white_label = 'White';
+    
     $color_grey_200 = '#F2F2F2';
-    $color_gery_200_label ='Grey-200';
+    $color_grey_200_label = 'Grey 200';
+    
+    $color_grey_light = '#eaeaea';
+    $color_grey_light_label = 'Grey Light';
+    
+    $color_blue_light = '#0a013b';
+    $color_blue_light_label = 'Blue Light';
+    
+    $color_dark_blue = '#1E3D51';
+    $color_dark_blue_label = 'Dark Blue';
 
     array_push($choices,
         array(
-            "value"=>$color_black,
-            "label"=>$color_black_label
+            "value" => $color_black,
+            "label" => $color_black_label
         ),
         array(
-            "value"=> $color_grey_200,
-            "label"=>$color_gery_200_label
+            "value" => $color_white,
+            "label" => $color_white_label
         ),
         array(
-            "value"=>$color_white,
-            "label"=>$color_white_label
+            "value" => $color_grey_200,
+            "label" => $color_grey_200_label
+        ),
+        array(
+            "value" => $color_grey_light,
+            "label" => $color_grey_light_label
+        ),
+        array(
+            "value" => $color_blue_light,
+            "label" => $color_blue_light_label
+        ),
+        array(
+            "value" => $color_dark_blue,
+            "label" => $color_dark_blue_label
         )
     );
 

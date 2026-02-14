@@ -45,68 +45,52 @@ if (empty($our_teams) || !is_array($our_teams)) {
                 <?php endif; ?>
             </header>
         <?php endif; ?>
-
+        
+        <?php if ($our_teams): ?>
         <div class="row">
-            <div class="col card-team">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <a href="#">
-                            <img src="assets/images/author.png" alt="team1">
-                        </a>
-                    </div>
-                    <div class="text-wrap">
-                        <h3 class="h6">
-                            <a href="#">
-                        Phonex Baker</a></h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col card-team">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="assets/images/author2.png" alt="team2">
-                    </div>
-                    <div class="text-wrap">
-                        <h3 class="h6">Lana Steiner</h3>
-                        <p>Product Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col card-team">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="assets/images/img-trip1.png" alt="team3">
-                    </div>
-                    <div class="text-wrap">
-                        <h3 class="h6">Demi Wilkinson</h3>
-                        <p>Engineering Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col card-team">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="assets/images/img-trip1.png" alt="team3">
-                    </div>
-                    <div class="text-wrap">
-                        <h3 class="h6">Demi Wilkinson</h3>
-                        <p>Engineering Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col card-team">
-                <div class="card-wrap">
-                    <div class="img-wrap">
-                        <img src="assets/images/img-trip1.png" alt="team3">
-                    </div>
-                    <div class="text-wrap">
-                        <h3 class="h6">Demi Wilkinson</h3>
-                        <p>Engineering Manager</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <?php 
+            foreach ($our_teams as $team_id):
+                $team_name = get_the_title($team_id);
+                $team_role = get_field('rha_team_designation', $team_id);
+                $phoneNumber = get_field('contact_number', $team_id);
+                $thumbnailId = get_post_thumbnail_id($team_id);
+                ?>
 
+                <div class="col card-team">
+                    <div class="card-wrap">
+                        <?php if ($thumbnailId){ ?>
+                        <div class="img-wrap">
+                            <a href="<?php echo esc_url(get_permalink($team_id)); ?>">
+                                <?php
+                                echo wp_get_attachment_image(
+                                    $thumbnailId,
+                                    'img_sm',
+                                    false,
+                                    [
+                                        'loading' => 'lazy',
+                                        'decoding'=> 'async',
+                                        'alt'     => esc_attr(
+                                            get_post_meta($thumbnailId, '_wp_attachment_image_alt', true)
+                                            ?: $team_name
+                                        ),
+                                    ]
+                                );
+                                ?>
+                            </a>
+                        </div>
+                        <?php } ?>
+                        <div class="text-wrap">
+                            <h3 class="h6">
+                                <a href="<?php echo esc_url(get_permalink($team_id)); ?>"><?php echo esc_html($team_name); ?></a>
+                            </h3>
+                            <p><?php echo esc_html($team_role); ?></p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
+            
+        </div>
+        <?php endif; ?>
     </div>
 </section>

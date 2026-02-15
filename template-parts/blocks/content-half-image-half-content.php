@@ -36,15 +36,23 @@ $image        = get_field('half_image_half_content_image'); // image ID
 $title        = get_field('half_image_half_content_title');
 $subtitle     = get_field('half_image_half_content_sub_title');
 $description  = get_field('half_image_half_content_description');
-$link         = get_field('half_image_half_content_link');
-$underline    = get_field('half_image_half_content_underline') ? 'bg-line' : '';
+$linkPrimary  = get_field('half_image_half_content_link');
+$linkSecondary = get_field('half_image_half_content_link_2');
+$underline    = get_field('half_image_half_content_underline') ? ' has-border' : '';
 
 /**
- * Button values
+ * Primary button values
  */
-$btn_url    = !empty($link['url']) ? esc_url($link['url']) : '';
-$btn_title  = !empty($link['title']) ? esc_html($link['title']) : '';
-$btn_target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
+$btn_url    = !empty($linkPrimary['url']) ? esc_url($linkPrimary['url']) : '';
+$btn_title  = !empty($linkPrimary['title']) ? esc_html($linkPrimary['title']) : '';
+$btn_target = !empty($linkPrimary['target']) ? esc_attr($linkPrimary['target']) : '_self';
+
+/**
+ * Secondary button values
+ */
+$btn_secondary_url    = !empty($linkSecondary['url']) ? esc_url($linkSecondary['url']) : '';
+$btn_secondary_title  = !empty($linkSecondary['title']) ? esc_html($linkSecondary['title']) : '';
+$btn_secondary_target = !empty($linkSecondary['target']) ? esc_attr($linkSecondary['target']) : '_self';
 ?>
 
 <section id="<?php echo esc_attr($section_id); ?>"
@@ -65,9 +73,9 @@ $btn_target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
                         <?php endif; ?>
 
                         <?php if ($title): ?>
-                            <h2 class="h2 <?php echo esc_attr($underline); ?>">
-                                <?php echo esc_html($title); ?>
-                            </h2>
+                            <div class="heading <?php echo esc_attr($underline); ?>">
+                                <h2><?php echo wp_kses($title, getAllowedHtmlTags()); ?></h2>
+                            </div>
                         <?php endif; ?>
 
                         <?php
@@ -76,7 +84,8 @@ $btn_target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
                             echo wp_kses_post($description);
                         }
                         ?>
-
+                    </div>
+                    <div class="btn-wrap mt-4">
                         <?php if ($btn_url && $btn_title): ?>
                             <a href="<?php echo $btn_url; ?>"
                                class="btn"
@@ -85,6 +94,13 @@ $btn_target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
                             </a>
                         <?php endif; ?>
 
+                        <?php if ($btn_secondary_url && $btn_secondary_title): ?>
+                            <a href="<?php echo $btn_secondary_url; ?>"
+                               class="btn outline"
+                               target="<?php echo $btn_secondary_target; ?>">
+                                <?php echo $btn_secondary_title; ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -97,7 +113,7 @@ $btn_target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
                             <?php
                             echo wp_get_attachment_image(
                                 (int) $image,
-                                'img_md',
+                                'img_lg',
                                 false,
                                 [
                                     'loading'  => 'lazy',

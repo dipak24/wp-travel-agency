@@ -3,7 +3,7 @@
   "title": "Header Banner Block",
   "description": "Display a header banner with background image and text.",
   "category": "eb-blocks",
-  "icon": "widgets menus",
+  "icon": "menu",
   "keywords": ["banner", "Header"],
   "supports": {
     "anchor": true,

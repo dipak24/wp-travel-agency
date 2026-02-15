@@ -54,7 +54,7 @@ $sub_title = get_field('rha_association_section_subtitle');
                                     if ($image_id) {
                                         echo wp_get_attachment_image(
                                             $image_id,
-                                            'img_sm',
+                                            'img_xs',
                                             false,
                                             [
                                                 'loading' => 'lazy',

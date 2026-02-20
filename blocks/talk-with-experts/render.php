@@ -55,14 +55,13 @@ if ($count === 3) {
             <!-- Centered avatars -->
             <div class="expert-avatars">
 
-                <?php foreach ($experts as $index => $expert_id) :
+                <?php 
+                foreach ($experts as $index => $expert_id) :
 
                     $name  = get_the_title($expert_id);
                     $size  = ($index === $primary_index) ? 80 : 55;
                     $class = 'expert-avatar' . (($index === $primary_index) ? ' is-primary' : '');
-                ?>
 
-                    <?php
                     echo wp_get_attachment_image(
                         get_post_thumbnail_id($expert_id),
                         'thumbnail',

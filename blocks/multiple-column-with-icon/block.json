@@ -1,0 +1,25 @@
+{
+  "name": "rha/multiple-column-with-icon-block",
+  "title": "Multiple Column With Icon Block",
+  "description": "Display a multiple column with icon block.",
+  "category": "eb-blocks",
+  "icon": "businessman",
+  "keywords": ["Multiple column with icon"],
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "mode": false
+  },
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "block_preview_image": "preview.png"
+      }
+    }
+  }
+}

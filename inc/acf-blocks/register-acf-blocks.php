@@ -135,7 +135,7 @@ function rha_init_block_types() {
 			)
 		);
 
-		// register a custom block for Multiple column Trip
+		// Multiple column featured trip listing block
 		acf_register_block_type(
 			array(
 				'name' 				=> 'block-featured-multiple-column-trip',
@@ -161,7 +161,7 @@ function rha_init_block_types() {
 			)
 		);
 
-		// register a custom block for Multiple column block
+		// Trip Promotion Block
 		acf_register_block_type(array(
 			'name'    			=> 'block-trip-promotion',
 			'title'    			=> __('Trip Promotion', 'rha'),
@@ -210,28 +210,28 @@ function rha_init_block_types() {
 		));
 
 		// Multiple Column Icon Text and Description - With Slider
-		acf_register_block_type(array(
-			'name'				=> 'block-multiple-column-icon-text-description-slider',
-			'title'				=> __('Multiple Column Icon Text and Description - Slider', 'rha'),
-			'description'		=> __('A custom Icon,Text and Description listing block in multiple columns with slider.', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'grid-view',
-			'keywords'			=> array('Feature', 'Feature One', 'Listing'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'	=> 'false',
-				'align'	=> false,
-			),
-			'example'  			=> array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/Multi-Column-Text-Icon-Description-With-Slider.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-multiple-column-icon-text-description-slider',
+		// 	'title'				=> __('Multiple Column Icon Text and Description - Slider', 'rha'),
+		// 	'description'		=> __('A custom Icon,Text and Description listing block in multiple columns with slider.', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'grid-view',
+		// 	'keywords'			=> array('Feature', 'Feature One', 'Listing'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'	=> 'false',
+		// 		'align'	=> false,
+		// 	),
+		// 	'example'  			=> array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/Multi-Column-Text-Icon-Description-With-Slider.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// register a Notable Achievement Counter Block.
 		acf_register_block_type(array(
@@ -282,52 +282,52 @@ function rha_init_block_types() {
 		));
 
 		// Register Resource Listing
-		acf_register_block_type(array(
-			'name'				=> 'block-services-listing',
-			'title'				=> __('Service Listing', 'rha'),
-			'description'		=> __('A Custom Service Listing Block.', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'filter',
-			'keywords'			=> array('Service', 'Listing'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'	=> 'false',
-				'align'	=> false,
-			),
-			'example'  			=> array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/service-listing.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-services-listing',
+		// 	'title'				=> __('Service Listing', 'rha'),
+		// 	'description'		=> __('A Custom Service Listing Block.', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'filter',
+		// 	'keywords'			=> array('Service', 'Listing'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'	=> 'false',
+		// 		'align'	=> false,
+		// 	),
+		// 	'example'  			=> array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/service-listing.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// register a gallery grid
-		acf_register_block_type(array(
-			'name'				=> 'block-gallery-grid',
-			'title'				=> __('Gallery Grid', 'rha'),
-			'description'		=> __('A Gallery Grid Block', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'embed-photo',
-			'keywords'			=> array('gallery', 'grid', 'image'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'	=> 'false',
-				'align'	=> false,
-			),
-			'example'  			=> array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-grid.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-gallery-grid',
+		// 	'title'				=> __('Gallery Grid', 'rha'),
+		// 	'description'		=> __('A Gallery Grid Block', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'embed-photo',
+		// 	'keywords'			=> array('gallery', 'grid', 'image'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'	=> 'false',
+		// 		'align'	=> false,
+		// 	),
+		// 	'example'  			=> array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-grid.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// register a gallery slider Page
 		acf_register_block_type(array(
@@ -354,52 +354,52 @@ function rha_init_block_types() {
 		));
 
 		// register a Gallery Slider with Content
-		acf_register_block_type(array(
-			'name'				=> 'block-gallery-slider-with-content',
-			'title'				=> __('Gallery Slider with Content', 'rha'),
-			'description'		=> __('A custom Gallery slider with content', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'embed-photo',
-			'keywords'			=> array('Gallery', 'slider'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'			=> 'false',
-				'align'			=> false,
-			),
-			'example'  => array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-slider-with-content.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-gallery-slider-with-content',
+		// 	'title'				=> __('Gallery Slider with Content', 'rha'),
+		// 	'description'		=> __('A custom Gallery slider with content', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'embed-photo',
+		// 	'keywords'			=> array('Gallery', 'slider'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'			=> 'false',
+		// 		'align'			=> false,
+		// 	),
+		// 	'example'  => array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-slider-with-content.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// register a Gallery Slider with Content
-		acf_register_block_type(array(
-			'name'				=> 'block-gallery-slide-with-grid',
-			'title'				=> __('Gallery Slider with Grid', 'rha'),
-			'description'		=> __('A custom Gallery slider with grid', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'embed-photo',
-			'keywords'			=> array('gallery', 'slide' , 'grid'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'			=> 'false',
-				'align'			=> false,
-			),
-			'example'  => array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-slider-with-grid.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-gallery-slide-with-grid',
+		// 	'title'				=> __('Gallery Slider with Grid', 'rha'),
+		// 	'description'		=> __('A custom Gallery slider with grid', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'embed-photo',
+		// 	'keywords'			=> array('gallery', 'slide' , 'grid'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'			=> 'false',
+		// 		'align'			=> false,
+		// 	),
+		// 	'example'  => array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . '/acf-block-preview/gallery-slider-with-grid.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// register a Trip Fact Block ( Trip detail page )
         acf_register_block_type(array(
@@ -474,28 +474,28 @@ function rha_init_block_types() {
         ));
 
 		// Fix Departure Block ( Trip detail page )
-		acf_register_block_type(array(
-            'name'				=> 'block-fix-departure',
-            'title'				=> __('Fix Departure', 'rha'),
-            'description'		=> __('You can display fix departure dates for the specigic dates', 'rha'),
-            'render_callback'	=> 'render_acf_block_callback',
-            'category'			=> 'eb-blocks',
-            'icon'				=> 'embed-photo',
-            'keywords'			=> array('departure', 'dates'),
-            'mode'				=> 'edit',
-            'supports'			=> array(
-                'mode'			=> 'false',
-                'align'			=> false,
-            ),
-            /* 'example'  => array(
-                 'attributes' => array(
-                     'mode' => 'preview',
-                     'data' => array(
-                         'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/ecommerce-dropdown-filter.png',
-                     )
-                 )
-             ),*/
-        ));
+		// acf_register_block_type(array(
+        //     'name'				=> 'block-fix-departure',
+        //     'title'				=> __('Fix Departure', 'rha'),
+        //     'description'		=> __('You can display fix departure dates for the specigic dates', 'rha'),
+        //     'render_callback'	=> 'render_acf_block_callback',
+        //     'category'			=> 'eb-blocks',
+        //     'icon'				=> 'embed-photo',
+        //     'keywords'			=> array('departure', 'dates'),
+        //     'mode'				=> 'edit',
+        //     'supports'			=> array(
+        //         'mode'			=> 'false',
+        //         'align'			=> false,
+        //     ),
+        //     /* 'example'  => array(
+        //          'attributes' => array(
+        //              'mode' => 'preview',
+        //              'data' => array(
+        //                  'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/ecommerce-dropdown-filter.png',
+        //              )
+        //          )
+        //      ),*/
+        // ));
 
 		// Why choose us Block
 		acf_register_block_type(array(

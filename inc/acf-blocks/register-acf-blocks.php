@@ -84,30 +84,30 @@ function rha_init_block_types() {
 		);
 		
 		// Multiple Column Icon Text and Description
-		acf_register_block_type(
-			array(
-				'name' 				=> 'block-multiple-column-icon-text-description',
-				'title'				=> __('Multiple Column Icon Text and Description', 'rha'),
-				'description'	 	=> __('A custom Icon,Text and Description listing block in multiple columns.', 'rha'),
-				'render_callback' 	=> 'render_acf_block_callback',
-				'category'	 		=> 'eb-blocks',
-				'icon' 				=> 'grid-view',
-				'keywords' 			=> array('Multiple Column Icon Text Description', 'Multiple Column', 'Listing'),
-				'mode' 				=> 'edit',
-				'supports' 			=> array(
-					'mode'  => 'false',
-					'align' => false,
-				),
-				'example' 			=> array(
-					'attributes' => array(
-						'mode'   => 'preview',
-						'data'   => array(
-							'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/multiple-column.png',
-						)
-					)
-				),
-			)
-		);
+		// acf_register_block_type(
+		// 	array(
+		// 		'name' 				=> 'block-multiple-column-icon-text-description',
+		// 		'title'				=> __('Multiple Column Icon Text and Description', 'rha'),
+		// 		'description'	 	=> __('A custom Icon,Text and Description listing block in multiple columns.', 'rha'),
+		// 		'render_callback' 	=> 'render_acf_block_callback',
+		// 		'category'	 		=> 'eb-blocks',
+		// 		'icon' 				=> 'grid-view',
+		// 		'keywords' 			=> array('Multiple Column Icon Text Description', 'Multiple Column', 'Listing'),
+		// 		'mode' 				=> 'edit',
+		// 		'supports' 			=> array(
+		// 			'mode'  => 'false',
+		// 			'align' => false,
+		// 		),
+		// 		'example' 			=> array(
+		// 			'attributes' => array(
+		// 				'mode'   => 'preview',
+		// 				'data'   => array(
+		// 					'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/multiple-column.png',
+		// 				)
+		// 			)
+		// 		),
+		// 	)
+		// );
 
 		// register a custom block for Multiple column blog
 		acf_register_block_type(
@@ -258,28 +258,28 @@ function rha_init_block_types() {
 		));
 
 		// registers hero one block.
-		acf_register_block_type(array(
-			'name'				=> 'block-banner-with-title-subtitle-image-collage',
-			'title'				=> __('Banner With Title Subtitle & Image Collage', 'rha'),
-			'description'		=> __('A custom Banner block with Title,Subtitle and Image Collage.', 'rha'),
-			'render_callback'	=> 'render_acf_block_callback',
-			'category'			=> 'eb-blocks',
-			'icon'				=> 'align-full-width',
-			'keywords'			=> array('hero', 'banner'),
-			'mode'				=> 'edit',
-			'supports'			=> array(
-				'mode'	=> 'false',
-				'align'	=> false,
-			),
-			'example'  			=> array(
-				'attributes' => array(
-					'mode' => 'preview',
-					'data' => array(
-						'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/Multiple-image-banner.png',
-					)
-				)
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'				=> 'block-banner-with-title-subtitle-image-collage',
+		// 	'title'				=> __('Banner With Title Subtitle & Image Collage', 'rha'),
+		// 	'description'		=> __('A custom Banner block with Title,Subtitle and Image Collage.', 'rha'),
+		// 	'render_callback'	=> 'render_acf_block_callback',
+		// 	'category'			=> 'eb-blocks',
+		// 	'icon'				=> 'align-full-width',
+		// 	'keywords'			=> array('hero', 'banner'),
+		// 	'mode'				=> 'edit',
+		// 	'supports'			=> array(
+		// 		'mode'	=> 'false',
+		// 		'align'	=> false,
+		// 	),
+		// 	'example'  			=> array(
+		// 		'attributes' => array(
+		// 			'mode' => 'preview',
+		// 			'data' => array(
+		// 				'block_preview_image' => RHA_THEME_IMAGES_DIR . 'acf-block-preview/Multiple-image-banner.png',
+		// 			)
+		// 		)
+		// 	),
+		// ));
 
 		// Register Resource Listing
 		// acf_register_block_type(array(

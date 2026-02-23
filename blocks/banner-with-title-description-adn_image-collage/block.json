@@ -1,7 +1,7 @@
 {
-  "name": "rha/image-grid-block",
-  "title": "Image Grid Block",
-  "description": "Display a grid of images.",
+  "name": "rha/banner-with-title-description-and-image-collage",
+  "title": "Banner With Title Subtitle & Image Collage",
+  "description": "A banner block with title, subtitle and image collage.",
   "category": "eb-blocks",
   "icon": "businessman",
   "keywords": ["Image grid"],

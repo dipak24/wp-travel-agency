@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Name: Image grid block
+ * Block Name: Banner With Title Subtitle & Image Collage
  * Description: A custom Gutenberg block to display a grid of images.
  * Category: eb-blocks
  */

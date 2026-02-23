@@ -1,10 +1,10 @@
 {
-  "name": "rha/header-banner",
-  "title": "Header Banner Block",
-  "description": "Display a header banner with background image and text.",
+  "name": "rha/banner-with-title-description-and-image-collage",
+  "title": "Banner With Title Subtitle & Image Collage",
+  "description": "A banner block with title, subtitle and image collage.",
   "category": "eb-blocks",
-  "icon": "menu",
-  "keywords": ["banner", "Header"],
+  "icon": "businessman",
+  "keywords": ["Image grid"],
   "supports": {
     "anchor": true,
     "align": false,

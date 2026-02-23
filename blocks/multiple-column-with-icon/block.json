@@ -1,10 +1,10 @@
 {
-  "name": "rha/header-banner",
-  "title": "Header Banner Block",
-  "description": "Display a header banner with background image and text.",
+  "name": "rha/multiple-column-with-icon-block",
+  "title": "Multiple Column With Icon Block",
+  "description": "Display a multiple column with icon block.",
   "category": "eb-blocks",
-  "icon": "menu",
-  "keywords": ["banner", "Header"],
+  "icon": "businessman",
+  "keywords": ["Multiple column with icon"],
   "supports": {
     "anchor": true,
     "align": false,

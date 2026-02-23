@@ -1,10 +1,10 @@
 {
-  "name": "rha/header-banner",
-  "title": "Header Banner Block",
-  "description": "Display a header banner with background image and text.",
+  "name": "rha/royal-by-number-block",
+  "title": "Royal By Number Block",
+  "description": "Display a royal by number block.",
   "category": "eb-blocks",
-  "icon": "menu",
-  "keywords": ["banner", "Header"],
+  "icon": "businessman",
+  "keywords": ["Royal by number"],
   "supports": {
     "anchor": true,
     "align": false,

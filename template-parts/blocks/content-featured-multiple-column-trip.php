@@ -31,11 +31,11 @@ $featured_posts   = get_field('multiple_column_trip_lists'); // IDs only
         <?php if ($main_title || $description_main): ?>
             <header class="heading-block">
                 <?php if ($main_title): ?>
-                    <h2><?php echo esc_html($main_title); ?></h2>
+                    <h2><?php echo  wp_kses($main_title, getAllowedHtmlTags()); ?></h2>
                 <?php endif; ?>
 
                 <?php if ($description_main):
-                    echo esc_html($description_main);
+                    echo wp_kses($description_main, getAllowedHtmlTags());
                     endif; 
                 ?>
             </header>
@@ -110,15 +110,20 @@ $featured_posts   = get_field('multiple_column_trip_lists'); // IDs only
                                 <div class="card-program">
                                     <ul class="tour-list">
                                         <?php if ($duration): ?>
-                                            <li class="duration"><?php echo esc_html($duration); ?></li>
+                                            <li class="duration">
+                                                <span class="dashicons dashicons-calendar-alt"></span>
+                                                <?php echo esc_html($duration); ?></li>
                                         <?php endif; ?>
 
                                         <?php if ($group_size): ?>
-                                            <li class="guest"><?php echo esc_html($group_size); ?></li>
+                                            <li class="guest"><span class="dashicons dashicons-groups"></span>
+                                            <?php echo esc_html($group_size); ?></li>
                                         <?php endif; ?>
 
                                         <?php if ($trip_grade): ?>
-                                            <li class="grade"><?php echo esc_html($trip_grade); ?></li>
+                                            <li class="grade ">
+                                                <span class="dashicons dashicons-chart-area"></span>
+                                                <?php echo esc_html($trip_grade); ?></li>
                                         <?php endif; ?>
                                     </ul>
 

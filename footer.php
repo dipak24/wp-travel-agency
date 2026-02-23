@@ -82,14 +82,14 @@
 						<p>Copyright © 2016 - <?php echo date('Y'); ?> <?php echo bloginfo('name'); ?></p>
 					</div>
 				</div>
-				<?php if (get_field('rha_whatsapp_number', 'option')): ?>
-					<div class="whats-app-box">
-						<a href="https://wa.me/<?php echo esc_attr(get_field('rha_whatsapp_number', 'option')); ?>" class="whatsapp-link" target="_blank" rel="noopener">
-							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="#25D366" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m3 21l1.65-3.8a9 9 0 1 1 3.4 2.9z"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0za5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></g></svg> <span>Get Instant Response:<br> +<?php echo esc_attr(get_field('rha_whatsapp_number', 'option')); ?> (WhatsApp)</span>
-						</a>
-					</div>
-				<?php endif; ?>
 			</div>
+			<?php if (get_field('rha_whatsapp_number', 'option')): ?>
+				<div class="whats-app-box">
+					<a href="https://wa.me/<?php echo esc_attr(get_field('rha_whatsapp_number', 'option')); ?>" class="whatsapp-link" target="_blank" rel="noopener">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="#25D366" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m3 21l1.65-3.8a9 9 0 1 1 3.4 2.9z"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0za5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></g></svg> <span>Get Instant Response:<br> +<?php echo esc_attr(get_field('rha_whatsapp_number', 'option')); ?> (WhatsApp)</span>
+					</a>
+				</div>
+			<?php endif; ?>
 		</div>
 	</footer>
 	<div class="footer-tab">

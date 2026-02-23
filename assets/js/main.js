@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+  toggleTheme();
   initHeaderHeight();
   stickyHeader();
   burgerMenu();
   megaMenu();
-  megaMenuKeyboard();
-  regularDropdownHover();
   initBannerSlider();
   initExploreSlider();
   initGallerySlider();
@@ -15,6 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initSidebarwithAccordion();
   scrollToTop();
   smoothScroll();
+  filterAccordion();
+  initFooterTab();
+  initFooterWhatsApp();
+  initPopup();
 
   document.querySelectorAll("[data-fancybox]").forEach(el => {
     const galleryName = el.getAttribute("data-fancybox");
@@ -25,7 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const isDarkTheme = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+  document.body.classList.toggle("theme-dark", isDarkTheme);
+  const themeToggle = document.querySelector(".theme-toggle");
+  if(isDarkTheme) {
+    themeToggle?.classList.add('dark');
+  }else {
+    themeToggle?.classList.remove('dark');
+  }
 });
+
+function toggleTheme() {
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  themeToggle?.addEventListener("click", function(e) {
+    e.preventDefault();
+    const isDarkTheme = document.body.classList.toggle('theme-dark');
+    localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
+    if(isDarkTheme) {
+      themeToggle.classList.add('dark');
+    }else {
+      themeToggle.classList.remove('dark');
+    }
+  })
+}
 
 //Header height
 function initHeaderHeight() {
@@ -61,6 +91,7 @@ window.addEventListener("scroll", function () {
 function stickyHeader() {
   let lastScroll = 0;
   const header = document.querySelector('#header');
+  const body = document.querySelector('body');
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
@@ -82,9 +113,11 @@ function stickyHeader() {
 
     if (currentScroll > lastScroll) {
       // scroll down → show
+      body.classList.remove('show-header');
       header.classList.add('hidden');
     } else {
       // scroll up → hide
+      body.classList.add('show-header');
       header.classList.remove('hidden');
     }
 
@@ -223,69 +256,44 @@ function megaMenu() {
   });
 }
 
-// Keyboard Navigation for Mega Menu
-function megaMenuKeyboard() {
-  const tabButtons = document.querySelectorAll('.tab-lists button');
-  
-  tabButtons.forEach(button => {
-    button.addEventListener('keydown', function(e) {
-      const parent = this.parentElement;
-      const buttons = Array.from(parent.querySelectorAll('button'));
-      const currentIndex = buttons.indexOf(this);
-      
-      let targetButton = null;
-      
-      switch(e.key) {
-        case 'ArrowDown':
-        case 'ArrowRight':
-          e.preventDefault();
-          targetButton = buttons[currentIndex + 1] || buttons[0];
-          break;
-          
-        case 'ArrowUp':
-        case 'ArrowLeft':
-          e.preventDefault();
-          targetButton = buttons[currentIndex - 1] || buttons[buttons.length - 1];
-          break;
-          
-        case 'Home':
-          e.preventDefault();
-          targetButton = buttons[0];
-          break;
-          
-        case 'End':
-          e.preventDefault();
-          targetButton = buttons[buttons.length - 1];
-          break;
-      }
-      
-      if (targetButton) {
-        targetButton.focus();
-        targetButton.click();
-      }
-    });
+//Footer Tab
+function initFooterTab() {
+  const footerTab = document.querySelector(".footer-tab");
+
+  window.addEventListener("scroll", () => {
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+    const pageHeight = document.body.scrollHeight;
+
+    if (scrollPos > pageHeight / 2) {
+      footerTab.classList.add("is-visible");
+    } else {
+      footerTab.classList.remove("is-visible");
+    }
   });
 }
 
-// Regular Dropdown Hover (Desktop only)
-function regularDropdownHover() {
-  if (window.innerWidth >= 768) {
-    const menuItems = document.querySelectorAll('.drop-wrap > ul > li:not(.has-megamenu)');
-    
-    menuItems.forEach(item => {
-      const submenu = item.querySelector('.sub-menu');
-      
-      if (submenu) {
-        item.addEventListener('mouseenter', function() {
-          this.classList.add('dropdown-active');
-        });
-        
-        item.addEventListener('mouseleave', function() {
-          this.classList.remove('dropdown-active');
-        });
-      }
-    });
-  }
+function initFooterWhatsApp() {
+  const footer = document.querySelector("#footer");
+  const whatsappBox = document.querySelector(".whats-app-box");
+
+  if (!footer || !whatsappBox) return;
+
+  const isMobile = window.innerWidth <= 768;
+  const thresholdValue = isMobile ? 0.1 : 0.7;
+
+  const observer = new IntersectionObserver((entries) => {
+    const entry = entries[0];
+
+    if (entry.isIntersecting) {
+      whatsappBox.classList.add("show");
+    } else {
+      whatsappBox.classList.remove("show");
+    }
+  }, {
+    threshold: thresholdValue
+  });
+
+  observer.observe(footer);
 }
 
 //Banner Slider
@@ -395,7 +403,7 @@ function initAccordion() {
   const imgWraps = document.querySelectorAll('.col-image .img-wrap');
   const MOBILE_BREAK = 1024;
 
-  // If the page has no accordion, STOP here (prevents errors)
+  // 🔒 If the page has no accordion, STOP here (prevents errors)
   if (!items.length || !headers.length) return;
 
   let isMobileView = window.innerWidth <= MOBILE_BREAK;
@@ -577,7 +585,7 @@ function initItinaryAccordion() {
 
 // Smooth Scrolling + Accordion + Sidebar Sync
 function initSidebarwithAccordion() {
-  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const sidebarLinks = document.querySelectorAll(".sidebar-link, #rank-math-toc ul li a");
   const sections = document.querySelectorAll(".accordion-list");
   const headerOffset = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height')) || 0;
 
@@ -762,4 +770,67 @@ function smoothScroll() {
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
   });
 });
+}
+
+//filter accordion
+function filterAccordion() {
+  const filterTitles = document.querySelectorAll('.filter-title');
+
+  filterTitles.forEach(title => {
+    title.addEventListener('click', function () {
+      const group = this.closest('.filter-group');
+      const slide = this.nextElementSibling;
+
+      // toggle current
+      group.classList.toggle('active');
+
+      // optional: smooth height control
+      if (group.classList.contains('active')) {
+        slide.style.maxHeight = 0;
+      } else {
+        slide.style.maxHeight = slide.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+//Modal (Popup)
+function initPopup() {
+  const popupLinks = document.querySelectorAll('a.popup');
+  const closeBtns = document.querySelectorAll('.popup-close');
+
+  // open popup
+  popupLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const popupId = this.getAttribute('href');
+
+      if (!popupId || popupId === '#') {
+        e.preventDefault();
+        return;
+      }
+
+      const popup = document.querySelector(popupId);
+
+      if (popup) {
+        popup.style.display = 'block';
+        document.body.classList.add('popup-active');
+      }
+
+      e.preventDefault();
+    });
+  });
+
+  // close popup
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const popup = this.closest('.popup');
+
+      if (popup) {
+        popup.style.display = 'none';
+      }
+
+      document.body.classList.remove('popup-active');
+      e.preventDefault();
+    });
+  });
 }

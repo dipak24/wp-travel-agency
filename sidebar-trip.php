@@ -1,129 +1,194 @@
 <?php
+// ==========================
+// PRICE SECTION
+// ==========================
 $regular_price = (float) get_field('trip_regular_price');
 $sale_price    = (float) get_field('trip_sale_price');
-$save_price    = ($regular_price && $sale_price) ? ($regular_price - $sale_price) : 0;
+$save_price    = ($regular_price > 0 && $sale_price > 0) ? ($regular_price - $sale_price) : 0;
+
+// ==========================
+// GROUP DISCOUNT SECTION
+// ==========================
+$group_discounts = get_field('rha_group_discount');
+$section_title   = get_field('rha_group_discount_section_title');
+$section_desc    = get_field('rha_group_discount_section_description');
+
+// ==========================
+// BOOKING URL
+// ==========================
+$booking_url = get_field('rha_trip_booking_url');
+$trip_id     = get_the_ID();
 ?>
 
 <div class="col col-sidebar">
     <div class="col-wrap">
         <aside class="trip">
 
-            <div class="promotion-offer">
+            <?php if ($sale_price > 0 || $regular_price > 0 || $save_price > 0) : ?>
+                <div class="promotion-offer">
 
-                <?php if ($sale_price > 0) : ?>
-                    <strong class="price">
-                        US$ <?php echo esc_html($sale_price); ?>
-                        <span>per person</span>
-                        <sup>PP</sup>
-                    </strong>
-                <?php endif; ?>
-
-                <?php if ($regular_price > 0) : ?>
-                    <div class="discount-price">
-                        <strong>14 Days</strong>
-                        <em>from</em>
-                        <del>US$ <?php echo esc_html($regular_price); ?></del>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($save_price > 0) : ?>
-                    <div class="save-price">
-                        SAVE <strong>US$ <?php echo esc_html($save_price); ?></strong>
-                        <span>per person</span>
-                    </div>
-                <?php endif; ?>
-
-            </div>
-
-            <?php if (have_rows('rha_group_discount')) : ?>
-
-                <div class="discount-lists">
-
-                    <div class="discount">
-                        <strong class="title">
-                            <?php
-                            $section_title = get_field('rha_group_discount_section_title');
-                            echo esc_html($section_title ? $section_title : 'Group-Size Discounts');
-                            ?>
+                    <?php if ($sale_price > 0) : ?>
+                        <strong class="price">
+                            US$ <?php echo esc_html($sale_price); ?>
+                            <span>per person</span>
+                            <sup>PP</sup>
                         </strong>
+                    <?php endif; ?>
 
-                        <?php
-                        $section_desc = get_field('rha_group_discount_section_description');
-                        if ($section_desc) :
-                            echo wp_kses_post($section_desc);
-                        endif;
-                        ?>
-                    </div>
-                    <?php if (have_rows('rha_group_discount')) : ?>
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>No. of Persons</th>
-                                        <th>Price per Person</th>
-                                    </tr>
-                                </thead>
+                    <?php if ($regular_price > 0) : ?>
+                        <div class="discount-price">
+                            <strong>14 Days</strong>
+                            <em>from</em>
+                            <del>US$ <?php echo esc_html($regular_price); ?></del>
+                        </div>
+                    <?php endif; ?>
 
-                                <tbody>
-                                    <?php while (have_rows('rha_group_discount')) : the_row(); ?>
-                                        <?php
-                                        $group_size  = get_sub_field('number_of_pax');
-                                        $group_price = get_sub_field('price_per_person');
-                                        ?>
-
-                                        <?php if ($group_size && $group_price) : ?>
-                                            <tr>
-                                                <td><?php echo esc_html($group_size); ?> Pax</td>
-                                                <td>US$ <?php echo esc_html($group_price); ?></td>
-                                            </tr>
-                                        <?php endif; ?>
-
-                                    <?php endwhile; ?>
-                                </tbody>
-                            </table>
+                    <?php if ($save_price > 0) : ?>
+                        <div class="save-price">
+                            SAVE <strong>US$ <?php echo esc_html($save_price); ?></strong>
+                            <span>per person</span>
                         </div>
                     <?php endif; ?>
 
                 </div>
+            <?php endif; ?>
 
+            <?php if (!empty($group_discounts)) : ?>
+                <div class="discount-lists">
+
+                    <div class="discount">
+                        <strong class="title">
+                            <?php echo esc_html($section_title ?: 'Group-Size Discounts'); ?>
+                        </strong>
+
+                        <?php if (!empty($section_desc)) : ?>
+                            <?php echo wp_kses_post($section_desc); ?>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No. of Persons</th>
+                                    <th>Price per Person</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($group_discounts as $row) :
+                                    $group_size  = $row['number_of_pax'] ?? '';
+                                    $group_price = $row['price_per_person'] ?? '';
+
+                                    if (!$group_size || !$group_price) continue;
+                                ?>
+                                    <tr>
+                                        <td><?php echo esc_html($group_size); ?> Pax</td>
+                                        <td>US$ <?php echo esc_html($group_price); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             <?php endif; ?>
 
             <div class="button-lists">
-                <?php if (get_field('rha_trip_booking_url')) : ?>
-                    <a href="<?php echo esc_url(get_field('rha_trip_booking_url')); ?>" class="btn">Book Now</a>
+
+                <?php if (!empty($booking_url)) : ?>
+                    <a href="<?php echo esc_url($booking_url); ?>" class="btn">Book Now</a>
                 <?php else : ?>
                     <form method="GET" action="<?php echo esc_url(home_url('/trip-booking')); ?>">
-                        <input type="hidden" name="trip_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                        <input type="hidden" name="trip_id" value="<?php echo esc_attr($trip_id); ?>">
                         <button type="submit" class="btn">Book Now</button>
+                        <p>Dates and discounts are applied in the next step.</p>
                     </form>
+                    <br>
                 <?php endif; ?>
 
                 <form action="<?php echo esc_url(home_url('/trip-inquire')); ?>" method="GET">
-                    <input type="hidden" name="trip_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                    <input type="hidden" name="trip_id" value="<?php echo esc_attr($trip_id); ?>">
                     <button type="submit" class="btn outline">Enquire</button>
                 </form>
 
-                <a href="https://wa.me/9779860110433"
-                   class="whatsapp-link"
-                   target="_blank"
-                   rel="noopener noreferrer">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <rect width="24" height="24" fill="none"></rect>
-                        <g fill="none" stroke="#25D366" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-                            <path d="m3 21l1.65-3.8a9 9 0 1 1 3.4 2.9z"></path>
-                            <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0za5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path>
-                        </g>
-                    </svg>
-
-                    <span>
-                        Get Instant Response:<br>
-                        +977-9860110433 (WhatsApp)
-                    </span>
-                </a>
-                <p>Dates and discounts are applied in the next step.</p>
             </div>
-
         </aside>
+
+        <?php
+        // ==========================
+        // EXPERT SECTION
+        // ==========================
+        $default_expert_title = get_field('rha_speak_to_expert_section_title', 'option');
+        $expertsLists         = get_field('opt_select_expert_lists', 'option');
+
+        if (!empty($expertsLists) && is_array($expertsLists)) :
+
+            $count = count($expertsLists);
+
+            if ($count === 3) {
+                $primary_index = 1;
+            } elseif ($count >= 4) {
+                $primary_index = 2;
+            } else {
+                $primary_index = 0;
+            }
+
+            $main_id = $expertsLists[$primary_index] ?? null;
+
+            if ($main_id) :
+        ?>
+            <div class="trip-expert-box sidebar has-border">
+
+                <?php if (!empty($default_expert_title)) : ?>
+                    <h5><?php echo esc_html($default_expert_title); ?></h5>
+                <?php endif; ?>
+
+                <div class="images">
+                    <?php foreach ($expertsLists as $index => $expert_id) :
+
+                        $name  = get_the_title($expert_id);
+                        $size  = ($index === $primary_index) ? 80 : 55;
+                        $class = 'expert-avatar' . (($index === $primary_index) ? ' is-primary' : '');
+
+                        echo wp_get_attachment_image(
+                            get_post_thumbnail_id($expert_id),
+                            'thumbnail',
+                            false,
+                            [
+                                'width'    => $size,
+                                'height'   => $size,
+                                'class'    => $class,
+                                'loading'  => 'lazy',
+                                'decoding' => 'async',
+                                'alt'      => esc_attr($name),
+                            ]
+                        );
+
+                    endforeach; ?>
+                </div>
+
+                <strong class="name h6"><?php echo esc_html(get_the_title($main_id)); ?></strong>
+
+                <?php if ($nationality = get_field('nationality', $main_id)) : ?>
+                    <p><?php echo esc_html($nationality); ?></p>
+                <?php endif; ?>
+
+                <?php if ($phone = get_field('contact_number', $main_id)) : ?>
+                    <span class="contact">
+                        Whatsapp:
+                        <strong>
+                            <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>">
+                                <?php echo esc_html($phone); ?>
+                            </a>
+                        </strong>
+                    </span>
+                <?php endif; ?>
+
+            </div>
+        <?php
+            endif;
+        endif;
+        ?>
+
     </div>
 </div>

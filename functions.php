@@ -116,6 +116,7 @@ function rha_setup() {
 	add_image_size('img_lg', 1200, 675, true);  // Featured / Banner (16:9 ratio)
 	add_image_size('img_md', 800, 450, true);   // Tablet devices
 	add_image_size('img_sm', 480, 270, true);   // Mobile devices
+	add_image_size('img_xs', 150, 150, true);   // icons or avatar
 }
 add_action( 'after_setup_theme', 'rha_setup' );
 
@@ -150,6 +151,7 @@ function rha_scripts() {
 	wp_enqueue_style('rha-swiper', RHA_ASSETS_DIR . '/css/swiper.min.css', array(), RHA_THEME_VERSION);
 	wp_enqueue_style('rha-fancybox', RHA_ASSETS_DIR . '/css/fancybox.min.css', array(), RHA_THEME_VERSION);
 	wp_enqueue_style( 'rha-style', get_stylesheet_uri(), array(), RHA_THEME_VERSION );
+	wp_enqueue_style( 'dashicons' ); // Dashicons for admin icons on frontend
 
 	//scripts
 	wp_enqueue_script( 'rha-swiper', RHA_ASSETS_DIR . '/js/swiper.min.js', array(), RHA_THEME_VERSION, true );
